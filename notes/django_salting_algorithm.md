@@ -1,5 +1,7 @@
 # Django Salting Algorithm
 
+- [Django Salting Security Algorithm](https://chat.openai.com/share/ae1f0fa2-24c9-4dc1-9c15-3f7bd56c1398)
+
 ## First Explanation
 
 Django uses a salting algorithm as part of its password hashing process to enhance security. Salting is a technique where a unique value (the "salt") is added to the password before it is hashed. This approach prevents attackers from using precomputed tables (like rainbow tables) to reverse the hash values back into passwords. Here's a general overview of how the salting algorithm works in Django:
@@ -21,8 +23,6 @@ Django uses a salting algorithm as part of its password hashing process to enhan
 This salting and hashing process is a key part of Django's approach to securely storing passwords. By ensuring that each password is salted with a unique value before hashing, Django significantly increases the difficulty of cracking passwords, even if an attacker gains access to the database.
 
 ## Second Explanation
-
-- [Django Salting Security Algorithm](https://chat.openai.com/share/ae1f0fa2-24c9-4dc1-9c15-3f7bd56c1398)
 
 Django uses a salting algorithm as part of its password hashing mechanism to enhance security. Salting is a technique used to protect against dictionary attacks and the use of rainbow tables by attackers. When passwords are stored, they are not stored as plain text but are hashed - this is a one-way transformation that ideally cannot be reversed. A salt is a random value that is added to the password before it is hashed, ensuring that the same password will not hash to the same value each time and making it much harder for attackers to guess the password based on the hash value.
 

@@ -1,5 +1,7 @@
 # Hashing Through the Snow (Password Hashing in Django)
 
+- [GitHub Repository](https://github.com/brucestull/hashing-through-the-snow)
+
 ## Virtual Environment Location
 
 - `C:\Users\FlynntKnapp\.virtualenvs\hashing-through-the-snow-rZsDGVvg\`
