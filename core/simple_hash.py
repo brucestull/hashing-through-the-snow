@@ -39,7 +39,12 @@ def compare_hashes(input_value, salt, hashed_value):
     new_hashed_value = hash_with_salt(input_value, salt)
 
     # Compare the new hashed value with the original hashed value
-    return f"Comparison Passes: {new_hashed_value == hashed_value}"
+    # return f"Comparison Passes: {new_hashed_value == hashed_value}"
+    return (
+        "Comparison Passes!"
+        if new_hashed_value == hashed_value
+        else "Comparison Fails!"
+    )
 
 
 def main():
