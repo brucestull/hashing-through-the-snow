@@ -48,12 +48,17 @@ def compare_hashes(password, salt, hashed_value):
     )
 
 
-filename = "simple_hash_output.txt"
+# Run from `core` directory:
+# filename = "output/simple_hash_output.txt"
+
+# Run from `root` directory:
+filename = "core/output/simple_hash_output.txt"
 
 
 def main():
+    append_the_stuff(filename, "\n")
     # Example input to hash
-    password = "test1234"
+    password = "letmein"
     append_the_stuff(filename, password)
     print(f"Password: {password}")
 
@@ -70,7 +75,7 @@ def main():
     # Compare the hashed value with a new hashed value
     print("Comparing hashed value with new hashed value...")
     result = compare_hashes(password, salt, hashed_value)
-    append_the_stuff("simple_hash_output.txt", result)
+    append_the_stuff(filename, result)
     print(compare_hashes(password, salt, hashed_value))
 
 

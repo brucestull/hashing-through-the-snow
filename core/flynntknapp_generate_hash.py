@@ -3,7 +3,11 @@ from utils import append_the_stuff
 from simple_hash import generate_salt, hash_with_salt_and_iterations
 import base64
 
-filename = "check_flynntknapp_password_output.txt"
+# Run from `core` directory:
+filename = "output/flynntknapp_output.txt"
+
+# Run from `root` directory:
+# filename = "core/output/flynntknapp_output.txt"
 
 append_the_stuff(filename, "\n")
 
