@@ -1,5 +1,6 @@
 import hashlib
 from datetime import datetime, timezone
+from utils import append_the_stuff
 
 
 def generate_salt():
@@ -19,9 +20,9 @@ def hash_with_salt(input_value, salt):
     return hash_object.hexdigest()
 
 
-def hash_with_salt_and_iterations(input_value, salt, num_iterations=1):
+def hash_with_salt_and_iterations(password, salt, num_iterations=1):
     # Combine the input value and the salt
-    combined = f"{input_value}{salt}".encode()
+    combined = f"{password}{salt}".encode()
 
     # Create a SHA-256 hash of the combined input and salt
     hash_object = hashlib.sha256(combined)
@@ -34,9 +35,9 @@ def hash_with_salt_and_iterations(input_value, salt, num_iterations=1):
     return hash_object.hexdigest()
 
 
-def compare_hashes(input_value, salt, hashed_value):
+def compare_hashes(password, salt, hashed_value):
     # Hash the input value with the salt
-    new_hashed_value = hash_with_salt(input_value, salt)
+    new_hashed_value = hash_with_salt(password, salt)
 
     # Compare the new hashed value with the original hashed value
     # return f"Comparison Passes: {new_hashed_value == hashed_value}"
@@ -47,22 +48,30 @@ def compare_hashes(input_value, salt, hashed_value):
     )
 
 
+filename = "simple_hash_output.txt"
+
+
 def main():
     # Example input to hash
-    input_value = "example_password"
+    password = "test1234"
+    append_the_stuff(filename, password)
+    print(f"Password: {password}")
 
     # Generate a salt that includes the current UTC time
     salt = generate_salt()
+    append_the_stuff(filename, salt)
+    print(f"Salt: {salt}")
 
     # Hash the input with the generated salt
-    hashed_value = hash_with_salt(input_value, salt)
-
-    print(f"Salt: {salt}")
+    hashed_value = hash_with_salt(password, salt)
+    append_the_stuff(filename, hashed_value)
     print(f"Hashed Value: {hashed_value}")
 
     # Compare the hashed value with a new hashed value
     print("Comparing hashed value with new hashed value...")
-    print(compare_hashes(input_value, salt, hashed_value))
+    result = compare_hashes(password, salt, hashed_value)
+    append_the_stuff("simple_hash_output.txt", result)
+    print(compare_hashes(password, salt, hashed_value))
 
 
 if __name__ == "__main__":
